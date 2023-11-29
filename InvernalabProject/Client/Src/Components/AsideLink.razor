@@ -1,0 +1,16 @@
+﻿<li class="flex items-center text-[#92929a] hover:text-white transition-all border-l-2 border-transparent hover:bg-[#202020] hover:border-l-[#32C06B]">
+    <a href="#" class="flex gap-2 pl-10 items-center py-3 w-full">
+        <Svg SvgString="@SvgString" />
+        Empresas
+    </a>
+</li>
+
+@code {
+
+    [Parameter]
+    public string Text { get; set; } = ""; 
+
+    [Parameter]
+    public string SvgString { get; set; } = "";
+
+}

@@ -1,0 +1,73 @@
+﻿@page "/FormCompany1"
+@layout LandingPageLayout
+@inject HttpClient httpClient
+@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+
+
+<div class=" translate-y-72">
+    <button class=" w-full py-5  bg-[#32C06B] rounded-lg hover:bg-white hover:text-black transition-all font-semibold" @onclick="OpenModal"> Modal</button>
+</div>
+
+<ModalComponent @ref="modal" IsVisible="@ModalVisible" OnClose="CloseModal">
+
+    <div class="flex justify-center items-center min-h-screen ">
+
+        <form class="bg-neutral-950 shadow-md rounded-xl px-8 pt-6 pb-8 mb-4 w-full sm:max-w-3xl">
+
+            <h2 class="text-center text-xl  font-bold text-white-700 mb-6 "> Crear Nuevas Empresas </h2>
+
+
+            <div>
+
+                <div>
+                    <label for="name" class="block text-lg text-white-700  font-sans font-normal mb-2">Nombre:</label>
+                    <input type="text" id="name" class="shadow appearance-none border border border-neutral-500 bg-[#181818] rounded w-full w-[450px] h-[64px] pl-4 mb-2 text-white leading-tight focus:outline-none focus:shadow-outline" placeholder="Nombre Empresa ">
+                </div>
+
+                <div>
+                <input id="logo" name="Logo" type="file" />
+                </div>
+
+
+                <div>
+                    <label for="nit" class="block text-lg text-white-700 font-sans font-normal mb-2">Nit:</label>
+                    <input type="text" id="nit" class="shadow appearance-none border border-neutral-500 bg-[#181818] rounded w-full w-[450px] h-[64px] pl-4 mb-2 text-white leading-tight focus:outline-none focus:shadow-outline" placeholder="Ingrese El Nit">
+                </div>
+
+                <div>
+                    <label for="User" class="block text-lg text-white-700 font-sans font-normal mb-2">Usuario:</label>
+                    <input type="text" id="User" class="shadow appearance-none border border-neutral-500 bg-[#181818] rounded w-full w-[450px] h-[64px] pl-4 mb-2 text-white leading-tight focus:outline-none focus:shadow-outline" placeholder="Ingrese El Usuario">
+                </div>
+
+                <div>
+                    <label for="password" class="block text-lg text-white-700 font-sans font-normal mb-2">Contraseña:</label>
+                    <input type="password" id="password" class="shadow appearance-none border border-neutral-500 bg-[#181818] rounded w-full w-[450px] h-[64px] pl-4 mb-8 text-white leading-tight focus:outline-none focus:shadow-outline" placeholder="Ingrese La Contraseña">
+                </div>
+
+                <button class=" w-full py-5  bg-[#32C06B] rounded-lg hover:bg-white hover:text-black transition-all font-semibold" type="submit" id="btnagregar">Agregar</button>
+
+            </div>
+        </form>
+    </div>
+
+</ModalComponent>
+
+
+
+
+@code {
+
+    private bool ModalVisible = false;
+    private ModalComponent modal;
+
+    private void OpenModal()
+    {
+        ModalVisible = true;
+    }
+
+    private async Task CloseModal()
+    {
+        ModalVisible = false;
+    }
+
+}

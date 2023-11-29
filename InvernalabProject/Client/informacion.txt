@@ -1,0 +1,47 @@
+﻿----------------------------------------------------------------------------------------
+MICROSERVICIOS PABLO FAJARDO
+
+url -> contact/sendMail
+method -> post
+recibe -> json 
+action -> envia email a correo invernalab y tambian al correo en el formulario
+data -> recibe json
+devuelve -> mensaje de exito o error en json
+
+
+
+url -> RecoverPassword
+method -> post 
+recibe -> recibe un string que es el correo ejemplo= "email@gmail.com"
+Action -> envia un email al correo ingresado 
+devuelve mensaje de exito o error en json
+
+
+url -> Workers
+method -> get 
+recibe -> no recibe ningun parametro
+Action -> encuentra los registros de trabajadores registrados en base de datos 
+devuelve -> todos los registros de los trabajadores en formatos json o un error en el 
+mismo formato si no encuentra nada
+
+
+
+url -> workers/byRol
+method -> get 
+recibe -> recibe el id del rol ejemplo= "WorkersInformation/byRol?idRol=1"
+Action -> encuentra todos los trabajadores que tengan el rol enviado
+devuelve -> todos los registros de los trabjadores que esten asociados al rol enviado
+o un mensaje de error si no encuentra nada
+
+
+url -> rols
+method -> get 
+recibe -> no recibe ningun parametro
+Action -> encuentra todos los rols registradoe en base de datos
+devuelve -> todos los registros de los rols en formatos json o un error en el 
+mismo formato si no encuentra nada
+
+
+-----------------------------------------------------------------------------------------------
+
+

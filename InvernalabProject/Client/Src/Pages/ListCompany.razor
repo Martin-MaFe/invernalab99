@@ -1,0 +1,19 @@
+﻿@page "/lista"
+@inject HttpClient httpClient
+
+<h3>ListCompany</h3>
+
+
+
+
+
+
+@code {
+
+    public static List<Empresa>? empresas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        empresas = await httpClient.GetFromJsonAsync<List<Empresa>>("api/ListCompany/List");
+    }
+}

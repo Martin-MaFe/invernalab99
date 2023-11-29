@@ -1,0 +1,23 @@
+﻿
+@(svgMarkup)
+
+
+@code {
+	[Parameter]
+	public string SvgString { get; set; } = "";
+
+
+	private MarkupString svgMarkup;
+
+	protected override void OnInitialized()
+	{
+		InitializeSvg();
+	}
+
+	private void InitializeSvg()
+
+	{
+		string svgString = SvgString;
+		svgMarkup = new MarkupString(svgString);
+	}
+}

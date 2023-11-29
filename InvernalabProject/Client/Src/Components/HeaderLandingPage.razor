@@ -1,0 +1,28 @@
+﻿
+<header id="header" class="flex justify-between fixed z-30 h-14 inset-x-0 px-11 py-5 text-white top-0 left-0 w-full backdrop-blur bg-[#1414148e]">
+	<a class="flex flex-row items-center" href="#">
+		<img src="./assets/logoinvernalb.png" alt="LogoInvernalab" width="60" height="40" />
+		<span class="text-lg font-bold">InvernaLab</span>
+	</a>
+
+	<nav class="hidden lg:flex items-center">
+		<ul class="flex items-center gap-7 font-normal">
+			<ButtonLink IdSection="home" Text="Home"  />
+			<ButtonLink IdSection="about" Text="Acerca De" />
+			<ButtonLink IdSection="services" Text="Servicios" />
+			<ButtonLink IdSection="associates" Text="Asociados" />
+		</ul>
+	</nav>
+
+	<div class="flex items-center gap-7">
+		<ul class="hidden lg:flex items-center font-base">
+			<ButtonLink IdSection="contactUs" Text="Contactanos" />
+		</ul>
+		<div class="ml-2 -my-1 lg:hidden"><button type="button" class="text-slate-500 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"><span class="sr-only">Navigation</span><svg width="24" height="24" fill="none" aria-hidden="true"><path d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button><div style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></div></div>
+		<a class="py-2 px-6 bg-[#32C06B] rounded-lg hover:bg-white hover:text-black transition-all font-semibold" href="/login">Login</a>
+	</div>
+</header>
+
+@code {
+
+}

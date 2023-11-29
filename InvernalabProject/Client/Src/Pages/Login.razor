@@ -1,0 +1,84 @@
+﻿@page "/login"
+@layout BasicPageLayout
+
+
+<div class="w-full h-screen flex justify-center items-center bg-[#141414]">
+	<div class="w-[30%] h-[80%]">
+		<img src="https://images.unsplash.com/photo-1573709386836-c54798c06761?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full opacity-2 rounded-l-xl" />
+	</div>
+
+    <div class="w-[30%] h-[80%] justify-between flex items-center bg-neutral-800 rounded-r-xl flex-col py-10">
+
+        <div class="w-full h-[20%] flex  justify-center items-center py-10">
+            <a href="#" class="flex items-center mb-6 text-2xl  text-gray-900 font-bold text-center">
+                <img src="./assets/logoinvernalb.png" alt="LogoInvernalab" width="60" height="40" />
+                <span class="text-2xl text-white">InvernaLab</span>
+            </a>
+        </div>
+
+		<div class="w-full flex flex-col justify-center items-center px-11 gap-10 mt-6">
+            <div class="flex flex-col w-full font-medium leading-6">
+                <label class="mb-1" for="txUser">
+                    Usuario
+                </label>
+                <div>
+                    <input id="txUser" type="text"  class="bg-transparent border-b focus:outline-none w-full py-3 px-1" placeholder="example@emprea.com" />
+                    <p id="validationMessage" class="text-red-500 hidden">Ingrese un correo válido</p>
+                </div>
+            </div>
+
+
+            <div class="flex flex-col w-full  font-medium leading-6">
+                <label class="mb-1" for="txUser">
+                    Contraseña
+                </label>
+                <div>
+                    <input id="txPassword" type="password"  class="bg-transparent border-b focus:outline-none w-full py-3 px-1" placeholder="•••••••••••••••" autoComplete="on" />
+                    
+                </div>
+            </div>
+
+        </div>
+
+        <div class="flex justify-center mt-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2">
+               
+            </label>
+        </div>
+
+
+        <div class="w-full h-[30%] flex-col flex justify-center items-center mt-12  px-11 gap-7">
+            <button class="w-full py-2 px-20 text-white bg-[#32C06B] rounded-lg border-transparent hover:bg-white hover:text-black transition-all font-semibold border-[1px] hover:border-black" type="submit">
+                Enviar
+            </button>
+
+            <span>¿Olvidaste tu Contraseña?<a class="ml-2 text-[#32C06B]" href="/RecoverPassword">Recuperar</a></span>
+        </div>
+	</div>
+</div>
+
+
+@code {
+    Empresa objEmpresa=new Empresa();
+    private string info;
+
+    private void validateCompany()
+        {
+        if (string.IsNullOrEmpty(objEmpresa.Usuario))
+            {
+            info = "el campo de usuario es requerido";
+        }else if (string.IsNullOrEmpty(objEmpresa.Contraseña))
+            {
+            info = "El campo contraseña es requerido";
+        }
+        objEmpresa.Nit = "";
+        objEmpresa.Logo = "";
+
+
+    }
+
+
+    public string txUser = "";
+    public string AddClass = "";
+    
+}

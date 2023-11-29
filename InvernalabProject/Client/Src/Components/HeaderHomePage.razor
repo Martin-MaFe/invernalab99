@@ -1,0 +1,27 @@
+﻿<header class="row-[1/1] col-[2/8] bg-[#0b0b0e] h-14 rounded-xl m-4  my-2  text-white flex justify-between px-6 items-center">
+	<div class=" h-full flex justify-center items-center">
+		<span class="text-lg text-white">InvernaLab</span>
+	</div>
+
+	<div class="flex items-center justify-center gap-4">
+		<div class="flex gap-2">
+			<IconButton SvgString="@svgBook" />
+			<IconButton SvgString="@svgBell" />
+		</div>
+
+		<div class="flex  justify-center items-center gap-3">
+			<img src="https://cdna.artstation.com/p/users/avatars/000/091/128/large/11c8e102ea5c5675b6f2ec200cb0c91a.jpg?1626803451alt=" class="w-10 h-10 rounded-xl object-cover cursor-pointer">
+
+			<div class="flex flex-col pr-4">
+				<span class="text-sm">Jose Perez</span>
+				<span class="text-xs text-[#92929a]">Admin</span>
+			</div>
+		</div>
+	</div>
+</header>
+
+@code {
+
+	string svgBell = "<svg xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-bell'><path d='M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9'/><path d='M10.3 21a1.94 1.94 0 0 0 3.4 0'/></svg>";
+	string svgBook = "<svg xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-book-check'><path d='M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20'/><path d='m9 9.5 2 2 4-4'/></svg>";
+}

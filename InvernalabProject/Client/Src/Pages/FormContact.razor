@@ -1,0 +1,197 @@
+﻿@page "/formContact"
+@layout LandingPageLayout
+@inject HttpClient httpClient
+@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+
+<div class="w-[50%] h-full flex justify-center items-center">
+	<div class="mx-auto max-w-2xl lg:max-w-none">
+		<div class="flex flex-col gap-7 ">
+			<h1 class="font-bold text-[2.6vw] w-[60%]" >
+				Ponte en Contacto con <span class="text-[#32C06B]">Invernalab</span>
+			</h1>
+			<div>
+				<p class="font-semibold text-[1.26vw] w-[80%]">@Description</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="w-[50%] h-full flex justify-center items-center mt-10 pr-6">
+	<form class="w-[80%] sm:w-[100%]">
+		<div class="mt-6 -space-y-px rounded-2xl bg-white/50">
+			<div class="group relative z-0 transition-all focus-within:z-10">
+				<input type="text" id="txName" autocomplete="name" placeholder=" " @bind="objUserContact.RepresentativeName"
+					   class="peer block w-full border border-neutral-400 bg-transparent px-6 pb-2 pt-8  text-base/6 text-neutral-950 ring-4 ring-transparent transition focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5 group-first:rounded-t-2xl group-last:rounded-b-2xl"
+					   name="name" required/>
+				<label for="txName"
+					   class="pointer-events-none absolute left-6 top-1/2 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950 peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-75 peer-[:not(:placeholder-shown)]:font-semibold peer-[:not(:placeholder-shown)]:text-neutral-950">Representante</label>
+			</div>
+
+			<div class="group relative z-0 transition-all focus-within:z-10">
+				<input type="text" id="txCompanyName" autocomplete="name" placeholder=" " @bind="objUserContact.CompanyName"
+					   class="peer block w-full border border-neutral-400 bg-transparent px-6 pb-2 pt-8 text-base/6 text-neutral-950 ring-4 ring-transparent transition focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5 group-first:rounded-t-2xl group-last:rounded-b-2xl"
+					   name="name" />
+				<label for="txCompanyName"
+					   class="pointer-events-none absolute left-6 top-1/2 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950 peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-75 peer-[:not(:placeholder-shown)]:font-semibold peer-[:not(:placeholder-shown)]:text-neutral-950">Empresa</label>
+			</div>
+
+			<div class="group relative z-0 transition-all focus-within:z-10">
+				<input type="text" id="txCompanyNit" autocomplete="name" placeholder=" " @bind="objUserContact.Nit"
+					   class="peer block w-full border border-neutral-400 bg-transparent px-6 pb-2 pt-8 text-base/6 text-neutral-950 ring-4 ring-transparent transition focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5 group-first:rounded-t-2xl group-last:rounded-b-2xl"
+					   name="name"/>
+				<label for="txCompanyNit"
+					   class="pointer-events-none absolute left-6 top-1/2 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950 peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-75 peer-[:not(:placeholder-shown)]:font-semibold peer-[:not(:placeholder-shown)]:text-neutral-950">Nit Empresa</label>
+			</div>
+
+			<div class="group relative z-0 transition-all focus-within:z-10">
+				<input type="email" id="txEmail" autocomplete="on" placeholder=" " @bind="objUserContact.Email"
+					   class="peer block w-full border border-neutral-400 bg-transparent px-6 pb-2 pt-8 text-base/6 text-neutral-950 ring-4 ring-transparent transition focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5 group-first:rounded-t-2xl group-last:rounded-b-2xl"
+					   name="email" />
+				<label for="txEmail"
+					   class="pointer-events-none absolute left-6 top-1/2 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950 peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-75 peer-[:not(:placeholder-shown)]:font-semibold peer-[:not(:placeholder-shown)]:text-neutral-950">Email</label>
+			</div>
+
+			<div class="group relative z-0 transition-all focus-within:z-10">
+				<input type="text" id="txPhone" runat="server" autocomplete="tel" placeholder=" " @bind="objUserContact.Telephone"
+					   class="peer block w-full border border-neutral-400 bg-transparent px-6 pb-2 pt-8 text-base/6 text-neutral-950 ring-4 ring-transparent transition focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5 group-first:rounded-t-2xl group-last:rounded-b-2xl"
+					   name="phone" />
+				<label for="txPhone"
+					   class="pointer-events-none absolute left-6 top-1/2 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950 peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-75 peer-[:not(:placeholder-shown)]:font-semibold peer-[:not(:placeholder-shown)]:text-neutral-950">Telefono</label>
+			</div>
+
+			<div class="group relative z-0 transition-all focus-within:z-10">
+				<input type="text" ID="txSubject" autocomplete="on" placeholder=" " @bind="objUserContact.Subject"
+					   class="asp-textbox peer block w-full border border-neutral-400 bg-transparent px-6 pb-2 pt-8 text-base/6 text-neutral-950 ring-4 ring-transparent transition focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5 group-first:rounded-t-2xl group-last:rounded-b-2xl"
+					   name="subject" />
+				<label for="txSubject"
+					   class="pointer-events-none absolute left-6 top-1/2 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950 peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-75 peer-[:not(:placeholder-shown)]:font-semibold peer-[:not(:placeholder-shown)]:text-neutral-950">Asunto</label>
+			</div>
+
+			<div class="group relative z-0 transition-all focus-within:z-10">
+				<input type="text" id="txBody" autocomplete="" placeholder=" " @bind="objUserContact.Message"
+					   class="asp-textbox peer block w-full border border-neutral-400 bg-transparent px-6 pb-4 pt-16 text-base/6 text-neutral-950 ring-4 ring-transparent transition focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5 group-first:rounded-t-2xl group-last:rounded-b-2xl"
+					   name="body" />
+				<label for="txBody"
+					   class="pointer-events-none absolute left-6 top-1/2 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-focus:-translate-y-8 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950 peer-[:not(:placeholder-shown)]:-translate-y-8 peer-[:not(:placeholder-shown)]:scale-75 peer-[:not(:placeholder-shown)]:font-semibold peer-[:not(:placeholder-shown)]:rounded-full peer-[:not(:placeholder-shown)]:bg-[#32C06B] peer-[:not(:placeholder-shown)]:text-white peer-[:not(:placeholder-shown)]:py-1 peer-[:not(:placeholder-shown)]:px-2 ">Mensaje</label>
+			</div>
+		</div>
+
+
+		<div class="flex justify-center mt-6">			
+			<label class="block text-gray-700 text-sm font-bold mb-2">
+				@info
+			</label>
+		</div>
+
+		<div class="flex justify-center mt-6">
+			<button class="py-2 px-20 text-white bg-[#32C06B] rounded-lg hover:bg-white hover:text-black transition-all font-semibold border-[1px] hover:border-black" type="button" @onclick="async ()=>await validateForm()">
+				Enviar
+			</button>
+		</div>
+	</form>
+</div>
+
+
+
+@code {
+
+	[Parameter]
+	public string Description { get; set; } = "";
+
+
+
+	public UserFormContactE objUserContact = new UserFormContactE();
+	private string info;
+
+	public async Task validateForm(){
+
+		if (string.IsNullOrEmpty(objUserContact.RepresentativeName))
+		{
+			info = "El campo representante en obligatorio";
+		}
+		else if (string.IsNullOrEmpty(objUserContact.CompanyName))
+		{
+			info = "El campo empresa en obligatorio";
+		}
+		else if (string.IsNullOrEmpty(objUserContact.Nit))
+		{
+			info = "El campo nit empresa en obligatorio";
+		}
+		else if (string.IsNullOrEmpty(objUserContact.Email))
+		{
+			info = "El campo email en obligatorio";
+		}
+		else if (!objUserContact.Email.ToString().Contains("@") && !objUserContact.Email.ToString().Contains("."))
+		{
+			info = "El email ingresado no es correcto, Ej: correo@gmail.com";
+		}
+		else if (string.IsNullOrEmpty(objUserContact.Telephone))
+		{
+			info = "El campo telefono en obligatorio";
+		}
+		else if (string.IsNullOrEmpty(objUserContact.CompanyName))
+		{
+			info = "El campo empresa en obligatorio";
+		}
+		else if (string.IsNullOrEmpty(objUserContact.Subject))
+		{
+			info = "El campo asunto en obligatorio";
+		}
+		else if (string.IsNullOrEmpty(objUserContact.Message))
+		{
+			info = "El campo de mensaje en obligatorio";
+		}else
+		{
+			info = "";
+			var response = await httpClient.PostAsJsonAsync("contact/sendMail", objUserContact);
+			if (response.IsSuccessStatusCode)
+			{
+				var content = await response.Content.ReadAsStringAsync();
+				var result = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(content);
+				info = result.message;
+				cleanForm();
+				NavigationManager.NavigateTo("/");
+			}
+			else
+			{
+				info = "Ocurrio un error, intentelo de nuevo";				
+			}
+
+		}		
+	}
+
+	private void cleanForm()
+	{
+		objUserContact.RepresentativeName = string.Empty;
+		objUserContact.CompanyName = string.Empty;
+		objUserContact.Nit = string.Empty;
+		objUserContact.Email = string.Empty;
+		objUserContact.Telephone = string.Empty;
+		objUserContact.Subject = string.Empty;
+		objUserContact.Message = string.Empty;
+	}
+
+
+	/*private async Task sendMail()
+	{
+		var response = await httpClient.PostAsJsonAsync("contact/sendMail", objUserContact);
+		if (response.IsSuccessStatusCode)
+		{
+			var content = await response.Content.ReadAsStringAsync();
+			var result = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(content);
+			var mensaje = result?.mensaje;
+			var status = response.StatusCode;
+			info = $"Mensaje: {mensaje}, Status: {status}";
+		}
+		else
+		{
+			var content = await response.Content.ReadAsStringAsync();
+			var result = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(content);
+			info = result.errors.Message[0].ToString(); ;
+		}
+	}*/
+
+}
+
+
+

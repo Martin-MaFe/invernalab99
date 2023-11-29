@@ -1,0 +1,23 @@
+﻿@inject IJSRuntime JSRuntime
+
+<li class="transition-all cursor-pointer">
+    <a id="@IdSectionLink" class="nav-link  hover:border-b-2 hover:border-b-[#32C06B]" onclick="scrollToSection('@IdSection')">@Text</a>
+</li>
+
+
+@code {
+
+    [Parameter]
+    public string IdSection { get; set; } = "";
+
+    [Parameter]
+    public string Text { get; set; } = "";
+
+    private string IdSectionLink => $"{IdSection}-link";
+
+    private async Task ScrollToSection()
+    {
+        await JSRuntime.InvokeVoidAsync("scrollToSection", IdSection);
+    }
+
+}
